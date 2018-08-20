@@ -1,0 +1,56 @@
+{
+  "tasks": [
+    {
+      "date": "Thu Aug 16 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": true,
+        "takevitamins": false,
+        "tidyroom": true
+      },
+      "tasks": [
+        "Buy furniture",
+        "Water plants"
+      ],
+      "notes": [
+        "Work at 4"
+      ],
+      "id": 1
+    },
+    {
+      "date": "Fri Aug 17 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": false,
+        "takevitamins": true,
+        "tidyroom": false
+      },
+      "tasks": [
+        "Test 1"
+      ],
+      "notes": [
+        "Note 2",
+        "Notes"
+      ],
+      "id": 2
+    },
+    {
+      "date": "Mon Aug 20 2018",
+      "daily": {
+        "walkdog": false,
+        "meditate": true,
+        "takevitamins": false,
+        "tidyroom": true
+      },
+      "tasks": [
+        "Watered plants",
+        "Finish folding laundry"
+      ],
+      "notes": [
+        "Work @ 3:45 c1",
+        "Sent Xcel receipt to Veronica"
+      ],
+      "id": 3
+    }
+  ]
+}

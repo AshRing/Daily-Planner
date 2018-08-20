@@ -1,0 +1,75 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #333; }
+
+h2 {
+  margin: 5px 0; }
+
+.day {
+  margin: 20px auto;
+  max-width: 500px;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 30px #666;
+  text-align: center;
+  background-color: #dfdfdf; }
+  .day__title {
+    border-bottom: 1px solid black;
+    padding: 5px 15px;
+    background-color: #ffd000; }
+  .day__tasks {
+    padding: 15px; }
+  .day__dailytaskcontainer {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px; }
+  .day__gratitude, .day__notes {
+    border-top: 1px solid black;
+    padding: 15px; }
+
+.dailytask {
+  display: block;
+  padding: 5px;
+  margin: 0 auto;
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.input {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center; }
+  .input__text {
+    font-family: inherit;
+    text-align: center;
+    margin-right: 5px; }
+  .input__button {
+    background-color: #fff;
+    padding: 0 5px;
+    border: 1px solid #999; }
+
+.list {
+  list-style: none;
+  width: 70%;
+  margin: 1.2rem auto;
+  text-align: left; }
+  .list__item {
+    margin: 5px 0;
+    padding: 0 3px 3px 3px;
+    border-bottom: 1px solid #333;
+    cursor: pointer; }
+    .list__item--crossout {
+      text-decoration-line: line-through; }
+  .list__delete {
+    float: right;
+    cursor: pointer;
+    font-weight: bold; }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Planner</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="public/css/style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/style.css">
+</head>
+<body>
+    <div class="container">
+            <div class="row">
+                <div class="card mx-auto mt-5 p-0 bg-light text-center shadow">
+                    <div class="day__title card-header p-3 bg-primary text-light"></div>
+                    <div class=" card-body py-3">
+                        <h2 class="mb-3 text-primary">Complete Daily</h2>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input" id="walkDog">
+                                    <label class="form-check-label" for="walkDog">Walk the Dog</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input" id="meditate">
+                                    <label class="form-check-label"  for="meditate">Meditate</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input" id="vitamins">
+                                    <label class="form-check-label"  for="vitamins">Take Vitamins</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input" id="tidyRoom">
+                                    <label class="form-check-label"  for="tidyRoom">Tidy Room</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="bg-primary">
+    
+                        <h2 class="mb-3 text-primary">Tasks</h2>
+                        <ul class="list-group" id="taskList"></ul>
+                        <div class="input-group py-3">
+                            <input type="text" id="taskText" value="Enter Task" class="form-control" onclick="this.select()">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" id="addTask">+</button>
+                            </div>
+                        </div>
+    
+                        <hr class="bg-primary">
+    
+                        <!-- <div class="day__gratitude">
+                            <h2 class="mb-3 text-primary">What are you grateful for?</h2>
+                            <ul class="list-group" id="gratList"></ul>
+                            <div class="input-group py-3">
+                                <input type="text" id="gratText" value="I am grateful for..." class="form-control" onclick="this.select()">
+                                <div class="input-group-append">
+                                    <input type="submit" value="+" class="btn btn-outline-secondary" id="addGrat">
+                                </div> 
+                            </div>
+                        </div>
+    
+                        <hr class="bg-primary"> -->
+    
+                        <div class="day__notes">
+                            <h2 class="mb-3 text-primary">Notes</h2>
+                            <ul class="list-group" id="noteList"></ul>
+                            <div class="input-group py-3">
+                                <input type="text" id="noteText" value="Enter note" class="form-control" onclick="this.select()">
+                                <div class="input-group-append">
+                                    <input type="submit" value="+" class="btn btn-outline-secondary" id="addNote">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <button class="saveday btn btn-primary btn-block mt-4">Save Day</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script src="public/js/app.bundle.js"></script>
+</body>
+</html>
