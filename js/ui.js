@@ -2,7 +2,19 @@ class UI {
     constructor() {
         this.currentDate = new Date().toDateString();
         this.titleContainer = document.querySelector('.day__title');
+        this.newDayContainer = document.querySelector('.new-day');
+        this.titleMenu = document.querySelector('.title-menu');
+        this.dummySpan = document.querySelector('.dummySpan');
+        this.backBtn = document.querySelector('.backBtn');
         this.displayDate();
+    }
+
+    openDiv(divToOpen, divToClose) {
+        document.querySelector(divToClose).style.display = 'none';
+        document.querySelector(divToOpen).style.display = 'block';
+    }
+
+    displayBackButton() {
     }
 
     displayDate() {
@@ -23,8 +35,8 @@ class UI {
 
         //add link option to delete task, append to li
         const link = document.createElement('a');
-        link.className = 'list__delete float-right';
-        link.innerHTML = '&times;';
+        link.className = 'list-item-delete float-right';
+        link.innerHTML = '<i class="fas fa-times"></i>';
         li.appendChild(link);
 
         //revert input to default text and select
@@ -33,10 +45,8 @@ class UI {
     }
 
     removeFromList(target) {
-        if(target.classList.contains('list__delete')) {
-            let itemValue = target.previousSibling.textContent;
-            let currentList = target.parentElement.parentElement.id;
-            target.parentElement.remove();
+        if(target.parentElement.classList.contains('list-item-delete')) {
+            target.parentElement.parentElement.remove();
             //this.removeFromSessionStorage(currentList, itemValue);
         }
     }

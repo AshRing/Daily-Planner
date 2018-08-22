@@ -2,6 +2,12 @@ import {http} from './http';
 import {ui} from './ui';
 
 
+//Start a new day button
+document.querySelector('.start-new-day').addEventListener('click', e => {
+    ui.openDiv('.new-day', '.title-menu');
+    e.preventDefault();
+});
+
 //Events to add to lists
 //Task list
 document.getElementById('taskText').addEventListener('keyup', e => {
@@ -32,6 +38,12 @@ document.querySelector('.saveday').addEventListener('click', function(e) {
     if(confirm('Are you sure you are ready to save this day?')) {
         saveday(e);
     }
+});
+
+//Back button
+document.querySelector('.backBtn').addEventListener('click', e => {
+    ui.openDiv('.title-menu', '.new-day');
+    e.preventDefault();
 });
 
 

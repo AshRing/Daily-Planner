@@ -8,19 +8,79 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <!-- <link rel="stylesheet" href="public/css/style.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
     <div class="container">
        <div class="row">
-           <div class="card mx-auto mt-5 py-4 px-5 bg-light shadow text-center">
+           <div class="title-menu card mx-auto mt-5 py-4 px-5 bg-light shadow text-center">
                 <h1 class="text-primary mb-4">Hello user...</h1>
                 <h2 class="text-dark mb-4">Welcome to the new day. <br>Would you like to:</h2>
                 <br>
-                <a href="./newday.html" class="btn btn-primary btn-block">Start a new day</a>
+                <a href="#" class="start-new-day btn btn-primary btn-block">Start a new day</a>
                 <a href="#" class="btn btn-secondary btn-block">Review week</a>
                 <a href="#" class="btn btn-dark btn-block">Review month</a>
             </div>
+
+            <!-- Start New Day -->
+            <div class="new-day card mx-auto mt-5 p-0 bg-light text-center shadow">
+                <div class="day__title card-header p-3 bg-primary text-light"></div>
+                <div class=" card-body py-3">
+                    <h2 class="mb-3 text-primary">Complete Daily</h2>
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="walkDog">
+                                <label class="form-check-label" for="walkDog">Walk the Dog</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="meditate">
+                                <label class="form-check-label"  for="meditate">Meditate</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="vitamins">
+                                <label class="form-check-label"  for="vitamins">Take Vitamins</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="tidyRoom">
+                                <label class="form-check-label"  for="tidyRoom">Tidy Room</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="bg-primary">
+
+                    <h2 class="mb-3 text-primary">Tasks</h2>
+                    <ul class="list-group" id="taskList"></ul>
+                    <div class="input-group py-3">
+                        <input type="text" id="taskText" value="Enter Task" class="form-control" onclick="this.select()">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" id="addTask"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <hr class="bg-primary">
+
+                    <div class="day__notes">
+                        <h2 class="mb-3 text-primary">Notes</h2>
+                        <ul class="list-group" id="noteList"></ul>
+                        <div class="input-group py-3">
+                            <input type="text" id="noteText" value="Enter note" class="form-control" onclick="this.select()">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" id="addNote"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="saveday btn btn-primary btn-block mt-4"><i class="far fa-save"></i> Save Day</button>
+                    <a href="#" class="backBtn btn btn-outline-secondary btn-block mt-5"><i class="fas fa-angle-double-left"></i> Go Back</a>
+                </div>
+            </div>
+            <!-- End New Day -->
+
+            <span class="dummySpan"></span>
        </div>
     </div>
 
@@ -28,6 +88,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-    <script src="public/js/app.js"></script>
+    <script src="public/js/app.bundle.js"></script>
 </body>
 </html>

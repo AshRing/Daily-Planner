@@ -1,3 +1,7 @@
-.list__delete {
+.list-item-delete {
     cursor: pointer;
+}
+
+.new-day {
+    display: none;
 }
