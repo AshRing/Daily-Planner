@@ -3,8 +3,17 @@ import {ui} from './ui';
 
 
 //Start a new day button
-document.querySelector('.start-new-day').addEventListener('click', e => {
+document.querySelector('.open-new-day').addEventListener('click', e => {
     ui.openDiv('.new-day', '.title-menu');
+    e.preventDefault();
+});
+
+//Review week button
+document.querySelector('.open-review-week').addEventListener('click', e => {
+    ui.openDiv('.review-week', '.title-menu');
+    if(!document.querySelector('.dayCard')) {
+        retrieveWeek();
+    }
     e.preventDefault();
 });
 
@@ -40,14 +49,33 @@ document.querySelector('.saveday').addEventListener('click', function(e) {
     }
 });
 
-//Back button
-document.querySelector('.backBtn').addEventListener('click', e => {
-    ui.openDiv('.title-menu', '.new-day');
+//Back button --New Day
+document.querySelector('.backBtnNewDay').addEventListener('click', e => {
+    //If any of the fields aren't empty, confirm if its ok to lose progress. Clear day and go back to title menu
+    if(document.getElementById('walkDog').checked === true ||
+    document.getElementById('meditate').checked === true ||
+    document.getElementById('vitamins').checked === true ||
+    document.getElementById('tidyRoom').checked === true ||
+    document.getElementById('taskList').innerHTML !== '' ||
+    document.getElementById('noteList').innerHTML !== '') {
+        if(confirm('Go back and lose progress?')){
+            ui.openDiv('.title-menu', '.new-day');
+            ui.clearNewDay();
+        }
+    } else {
+        ui.openDiv('.title-menu', '.new-day');
+    }
+    e.preventDefault();
+});
+
+//Back button --Review Week
+document.querySelector('.backBtnReview').addEventListener('click', e=> {
+    ui.openDiv('.title-menu', '.review-week');
     e.preventDefault();
 });
 
 
-
+//Save current day to API
 function saveday(e) {
     const walkdog = document.getElementById('walkDog').checked;
     const meditate = document.getElementById('meditate').checked;
@@ -85,4 +113,34 @@ function saveday(e) {
     console.log(data);
 
     e.preventDefault();
+}
+
+
+//Retrieve past week from API
+function retrieveWeek() {
+    http.get('http://localhost:3000/tasks')
+        .then(data => {
+            ui.displayDays(getLast7Days(data));
+        })
+        .catch(err => console.log(err));
+}
+
+
+//Return last 7 days
+function getLast7Days(data) {
+    let last7 = [];
+    let result = [];
+    for (let i=0; i<7; i++) {
+        let d = new Date();
+        d.setDate(d.getDate() - i);
+        last7.push(d);
+        last7[i] = last7[i].toDateString();
+
+        for(let j=0; j<data.length; j++) {
+            if(last7[i] === data[j].date) {
+                result.push(data[j]);
+            }
+        }
+    }
+    return result;
 }

@@ -51,6 +51,24 @@
         "Sent Xcel receipt to Veronica"
       ],
       "id": 3
+    },
+    {
+      "date": "Wed Aug 22 2018",
+      "daily": {
+        "walkdog": false,
+        "meditate": false,
+        "takevitamins": false,
+        "tidyroom": true
+      },
+      "tasks": [
+        "Dinner with parents",
+        "Continue packing",
+        "Donate items"
+      ],
+      "notes": [
+        "I love Wes"
+      ],
+      "id": 4
     }
   ]
 }
