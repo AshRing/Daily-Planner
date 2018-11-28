@@ -1,6 +1,8 @@
+import moment from 'moment';
+
 class UI {
     constructor() {
-        this.currentDate = new Date().toDateString();
+        this.currentDate = moment().format('dddd MMMM Do, YYYY');
         this.titleContainer = document.querySelector('.day__title');
         this.newDayContainer = document.querySelector('.new-day');
         this.weekContainer = document.querySelector('.review-week');

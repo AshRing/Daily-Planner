@@ -69,6 +69,38 @@
         "I love Wes"
       ],
       "id": 4
+    },
+    {
+      "date": "Monday November 26th, 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": false,
+        "takevitamins": true,
+        "tidyroom": true
+      },
+      "tasks": [
+        "Bought xmas tree",
+        "Started buying xmas presents"
+      ],
+      "notes": [
+        "work at 1030 50$"
+      ],
+      "id": 5
+    },
+    {
+      "date": "Tuesday November 27th, 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": true,
+        "takevitamins": false,
+        "tidyroom": false
+      },
+      "tasks": [
+        "Skiing @ keystone",
+        "study or work on projects"
+      ],
+      "notes": [],
+      "id": 6
     }
   ]
 }

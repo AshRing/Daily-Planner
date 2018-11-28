@@ -1,5 +1,6 @@
 import {http} from './http';
 import {ui} from './ui';
+import moment from 'moment';
 
 
 //Start a new day button
@@ -128,19 +129,29 @@ function retrieveWeek() {
 
 //Return last 7 days
 function getLast7Days(data) {
-    let last7 = [];
+    const dataDays = Object.values(data);
+    console.log(dataDays);
     let result = [];
     for (let i=0; i<7; i++) {
-        let d = new Date();
-        d.setDate(d.getDate() - i);
-        last7.push(d);
-        last7[i] = last7[i].toDateString();
-
-        for(let j=0; j<data.length; j++) {
-            if(last7[i] === data[j].date) {
+        let today = moment();
+        today = today.subtract(i, 'days').format('dddd MMMM Do, YYYY');
+        console.log(today);
+        for(let j=0; j<dataDays.length; j++) {
+            console.log(data[j].date);
+            if(data[j].date === today) {
                 result.push(data[j]);
             }
         }
     }
+    console.log(result);
+
+    // for(let j=0; j<last7.length; j++) {
+    //     const day = data[j].date;
+    //     console.log(day);
+    //     if(last7[j].isSame(day)) {
+    //         
+    //     }
+    // }
+
     return result;
 }
