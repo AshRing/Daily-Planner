@@ -9,6 +9,8 @@ class UI {
         this.titleMenu = document.querySelector('.title-menu');
         this.dummySpan = document.querySelector('.dummySpan');
         this.backBtn = document.querySelector('.backBtn');
+        this.taskText = document.getElementById('taskText');
+        this.noteText = document.getElementById('noteText');
         this.displayDate();
     }
 
@@ -24,41 +26,47 @@ class UI {
         document.getElementById('tidyRoom').checked = false;
         document.getElementById('taskList').innerHTML = '';
         document.getElementById('noteList').innerHTML = '';
+        this.taskText.value = this.taskText.getAttribute('value');
+        this.noteText.value = this.noteText.getAttribute('value');
     }
 
     displayDays(data) {
-        console.log(data);
-        for (let i=0; i<data.length; i++) {
-            const dayCard = `
-                <div class="card dayCard mx-3 p-0 bg-light text-center shadow">
-                    <h2 class="card-header p-3 bg-primary text-light">${data[i].date}</h2>
-                    <div class="card-body p-3">
-                        <h4 class="text-secondary text-dark mb-3">Daily Tasks</h4>
-                        <ul class="list-group list-group-flush mb-4">
-                            <li class="list-group-item bg-light border-0"><strong class="text-primary">Walked Dog:</strong> ${data[i].daily.walkdog}</li>
-                            <li class="list-group-item bg-light border-0"><strong class="text-primary">Meditated:</strong> ${data[i].daily.meditate}</li>
-                            <li class="list-group-item bg-light border-0"><strong class="text-primary">Took Vitamins:</strong> ${data[i].daily.takevitamins}</li>
-                            <li class="list-group-item bg-light border-0"><strong class="text-primary">Tidied Room:</strong> ${data[i].daily.tidyroom}</li>
-                        </ul>
-                        <hr class="bg-primary">
-                        <h4 class="text-secondary text-dark mb-3">Tasks</h4>
-                        <ul class="past-tasks list-group list-group-flush mb-4">
-                            ${this.displayPastItemList(data[i].tasks)}
-                        </ul>
-                        <hr class="bg-primary">
-                        <h4 class="text-secondary text-dark mb-3">Notes</h4>
-                        <ul class="list-group list-group-flush mb-4">
-                            ${this.displayPastItemList(data[i].notes)}
-                        </ul>
-                    </div>
-                </div>
-            `;
+        if(data.length === 0) {
             const dayDiv = document.createElement('div');
-            dayDiv.innerHTML = dayCard;
+            dayDiv.innerHTML = `<p>There is no data from the past 7 days to display.</p>`;
             document.querySelector('.card-deck').insertBefore(dayDiv, this.dummySpan);
+        } else {
+            for (let i=0; i<data.length; i++) {
+                const dayCard = `
+                    <div class="card dayCard mx-3 p-0 bg-light text-center shadow">
+                        <h2 class="card-header p-3 bg-primary text-light">${data[i].date}</h2>
+                        <div class="card-body p-3">
+                            <h4 class="text-secondary text-dark mb-3">Daily Tasks</h4>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item bg-light border-0"><strong class="text-primary">Walked Dog:</strong> ${data[i].daily.walkdog}</li>
+                                <li class="list-group-item bg-light border-0"><strong class="text-primary">Meditated:</strong> ${data[i].daily.meditate}</li>
+                                <li class="list-group-item bg-light border-0"><strong class="text-primary">Took Vitamins:</strong> ${data[i].daily.takevitamins}</li>
+                                <li class="list-group-item bg-light border-0"><strong class="text-primary">Tidied Room:</strong> ${data[i].daily.tidyroom}</li>
+                            </ul>
+                            <hr class="bg-primary">
+                            <h4 class="text-secondary text-dark mb-3">Tasks</h4>
+                            <ul class="past-tasks list-group list-group-flush mb-4">
+                                ${this.displayPastItemList(data[i].tasks)}
+                            </ul>
+                            <hr class="bg-primary">
+                            <h4 class="text-secondary text-dark mb-3">Notes</h4>
+                            <ul class="list-group list-group-flush mb-4">
+                                ${this.displayPastItemList(data[i].notes)}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                const dayDiv = document.createElement('div');
+                dayDiv.innerHTML = dayCard;
+                document.querySelector('.card-deck').insertBefore(dayDiv, this.dummySpan);
+            }
         }
     }
-
     displayPastItemList(data) {
         let liList = [];
         for (let i=0; i<data.length; i++) {

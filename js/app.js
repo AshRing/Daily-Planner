@@ -47,6 +47,8 @@ document.getElementById('noteList').addEventListener('click', function(e) {
 document.querySelector('.saveday').addEventListener('click', function(e) {
     if(confirm('Are you sure you are ready to save this day?')) {
         saveday(e);
+        ui.openDiv('.title-menu', '.new-day');
+        ui.clearNewDay();
     }
 });
 
@@ -130,20 +132,16 @@ function retrieveWeek() {
 //Return last 7 days
 function getLast7Days(data) {
     const dataDays = Object.values(data);
-    console.log(dataDays);
     let result = [];
     for (let i=0; i<7; i++) {
         let today = moment();
         today = today.subtract(i, 'days').format('dddd MMMM Do, YYYY');
-        console.log(today);
         for(let j=0; j<dataDays.length; j++) {
-            console.log(data[j].date);
             if(data[j].date === today) {
                 result.push(data[j]);
             }
         }
     }
-    console.log(result);
 
     // for(let j=0; j<last7.length; j++) {
     //     const day = data[j].date;
