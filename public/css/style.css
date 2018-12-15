@@ -1,3 +1,7 @@
+html {
+    overflow-y: scroll;
+}
+
 .list-item-delete {
     cursor: pointer;
 }
@@ -8,4 +12,12 @@
 
 .review-week {
     display: none;
+}
+
+.dayCard {
+    display: block !important;
+}
+
+.card-header {
+    cursor: pointer;
 }

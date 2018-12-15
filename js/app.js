@@ -72,11 +72,17 @@ document.querySelector('.backBtnNewDay').addEventListener('click', e => {
 });
 
 //Back button --Review Week
-document.querySelector('.backBtnReview').addEventListener('click', e=> {
+document.querySelector('.backBtnReview').addEventListener('click', (e) => {
     ui.openDiv('.title-menu', '.review-week');
     e.preventDefault();
 });
 
+//Toggle Review
+document.querySelector('.cardContainer').addEventListener('click', (e) => {
+    if(e.target.classList.contains('card-header')) {
+        ui.toggleReviewCard(e);
+    }
+});
 
 //Save current day to API
 function saveday(e) {

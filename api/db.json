@@ -1,5 +1,118 @@
 {
   "tasks": [
-
+    {
+      "date": "Monday December 10th, 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": true,
+        "takevitamins": true,
+        "tidyroom": false
+      },
+      "tasks": [
+        "Test1",
+        "Test 2",
+        "Test 3"
+      ],
+      "notes": [
+        "Note1",
+        "Note2"
+      ],
+      "id": 1
+    },
+    {
+      "date": "Tuesday December 11th, 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": true,
+        "takevitamins": true,
+        "tidyroom": false
+      },
+      "tasks": [
+        "Test1",
+        "Test 2",
+        "Test 3"
+      ],
+      "notes": [
+        "Note1",
+        "Note2"
+      ],
+      "id": 2
+    },
+    {
+      "date": "Wednesday December 12th, 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": true,
+        "takevitamins": true,
+        "tidyroom": false
+      },
+      "tasks": [
+        "Test1",
+        "Test 2",
+        "Test 3"
+      ],
+      "notes": [
+        "Note1",
+        "Note2"
+      ],
+      "id": 3
+    },
+    {
+      "date": "Thursday December 13th, 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": true,
+        "takevitamins": true,
+        "tidyroom": false
+      },
+      "tasks": [
+        "Test1",
+        "Test 2",
+        "Test 3"
+      ],
+      "notes": [
+        "Note1",
+        "Note2"
+      ],
+      "id": 4
+    },
+    {
+      "date": "Friday December 14th, 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": true,
+        "takevitamins": true,
+        "tidyroom": true
+      },
+      "tasks": [
+        "Test1",
+        "Test 2",
+        "Test 3"
+      ],
+      "notes": [
+        "Note1",
+        "Note2"
+      ],
+      "id": 5
+    },
+    {
+      "date": "Saturday December 15th, 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": false,
+        "takevitamins": true,
+        "tidyroom": false
+      },
+      "tasks": [
+        "Test1",
+        "Test 2",
+        "Test 3"
+      ],
+      "notes": [
+        "Note1",
+        "Note2"
+      ],
+      "id": 6
+    }
   ]
 }

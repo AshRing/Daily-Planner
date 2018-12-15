@@ -34,13 +34,14 @@ class UI {
         if(data.length === 0) {
             const dayDiv = document.createElement('div');
             dayDiv.innerHTML = `<p>There is no data from the past 7 days to display.</p>`;
-            document.querySelector('.card-deck').insertBefore(dayDiv, this.dummySpan);
+            document.querySelector('.cardContainer').appendChild(dayDiv);
         } else {
+            
             for (let i=0; i<data.length; i++) {
                 const dayCard = `
-                    <div class="card dayCard mx-3 p-0 bg-light text-center shadow">
+                    <div class="card dayCard m-3 p-0 bg-light text-center shadow">
                         <h2 class="card-header p-3 bg-primary text-light">${data[i].date}</h2>
-                        <div class="card-body p-3">
+                        <div class="card-body cardBody p-3">
                             <h4 class="text-secondary text-dark mb-3">Daily Tasks</h4>
                             <ul class="list-group list-group-flush mb-4">
                                 <li class="list-group-item bg-light border-0"><strong class="text-primary">Walked Dog:</strong> ${data[i].daily.walkdog}</li>
@@ -63,10 +64,29 @@ class UI {
                 `;
                 const dayDiv = document.createElement('div');
                 dayDiv.innerHTML = dayCard;
-                document.querySelector('.card-deck').insertBefore(dayDiv, this.dummySpan);
+                document.querySelector('.cardContainer').appendChild(dayDiv);
+                
             }
+            this.closeReviewCards();
         }
     }
+
+    closeReviewCards() {
+        const cardBodies = document.querySelectorAll('.cardBody');
+        cardBodies.forEach((cardBody) => {
+            cardBody.style.display = 'none';
+        });
+    }
+
+    toggleReviewCard(e) {
+        const target = e.target.parentElement.querySelector('.cardBody');
+        if (target.style.display === "none") {
+          target.style.display = "block";
+        } else {
+          target.style.display = "none";
+        }
+    }
+
     displayPastItemList(data) {
         let liList = [];
         for (let i=0; i<data.length; i++) {
