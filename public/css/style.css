@@ -21,3 +21,11 @@ html {
 .card-header {
     cursor: pointer;
 }
+
+.statsContainer {
+    float: left;
+}
+
+.cardContainer {
+    float: right;
+}

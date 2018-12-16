@@ -113,6 +113,22 @@
         "Note2"
       ],
       "id": 6
+    },
+    {
+      "date": "Sunday December 16th, 2018",
+      "daily": {
+        "walkdog": true,
+        "meditate": false,
+        "takevitamins": false,
+        "tidyroom": true
+      },
+      "tasks": [
+        "Study"
+      ],
+      "notes": [
+        "Brett Lindsey in town"
+      ],
+      "id": 7
     }
   ]
 }

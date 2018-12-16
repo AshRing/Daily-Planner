@@ -2,14 +2,14 @@ import {http} from './http';
 import {ui} from './ui';
 import moment from 'moment';
 
-
-//Start a new day button
+//Events to open different components
+//Start a new day button, opens new-day div and shuts title-menu
 document.querySelector('.open-new-day').addEventListener('click', e => {
     ui.openDiv('.new-day', '.title-menu');
     e.preventDefault();
 });
 
-//Review week button
+//Review week button, opens review-week div and shuts title-menu
 document.querySelector('.open-review-week').addEventListener('click', e => {
     ui.openDiv('.review-week', '.title-menu');
     if(!document.querySelector('.dayCard')) {
@@ -17,6 +17,7 @@ document.querySelector('.open-review-week').addEventListener('click', e => {
     }
     e.preventDefault();
 });
+
 
 //Events to add to lists
 //Task list
@@ -43,7 +44,7 @@ document.getElementById('noteList').addEventListener('click', function(e) {
     ui.removeFromList(e.target);
 });
 
-//Save day to api
+//Save day button -- gos back to title screen after confirm
 document.querySelector('.saveday').addEventListener('click', function(e) {
     if(confirm('Are you sure you are ready to save this day?')) {
         saveday(e);
@@ -60,12 +61,12 @@ document.querySelector('.backBtnNewDay').addEventListener('click', e => {
     document.getElementById('vitamins').checked === true ||
     document.getElementById('tidyRoom').checked === true ||
     document.getElementById('taskList').innerHTML !== '' ||
-    document.getElementById('noteList').innerHTML !== '') {
+    document.getElementById('noteList').innerHTML !== '') {  //Validation. If any fields are filled out, confirm and clear
         if(confirm('Go back and lose progress?')){
             ui.openDiv('.title-menu', '.new-day');
             ui.clearNewDay();
         }
-    } else {
+    } else { //If no fields are filled out, just go back
         ui.openDiv('.title-menu', '.new-day');
     }
     e.preventDefault();
@@ -79,12 +80,12 @@ document.querySelector('.backBtnReview').addEventListener('click', (e) => {
 
 //Toggle Review
 document.querySelector('.cardContainer').addEventListener('click', (e) => {
-    if(e.target.classList.contains('card-header')) {
+    if(e.target.classList.contains('card-header')) { //Only target areas that are a part of the card-header
         ui.toggleReviewCard(e);
     }
 });
 
-//Save current day to API
+//Save current day's data to API
 function saveday(e) {
     const walkdog = document.getElementById('walkDog').checked;
     const meditate = document.getElementById('meditate').checked;
@@ -130,6 +131,7 @@ function retrieveWeek() {
     http.get('http://localhost:3000/tasks')
         .then(data => {
             ui.displayDays(getLast7Days(data));
+            ui.displayStats(data);
         })
         .catch(err => console.log(err));
 }
@@ -140,22 +142,14 @@ function getLast7Days(data) {
     const dataDays = Object.values(data);
     let result = [];
     for (let i=0; i<7; i++) {
-        let today = moment();
+        let today = moment(); //create a moment and subtract i days from it, format it in the same way the data is formatted
         today = today.subtract(i, 'days').format('dddd MMMM Do, YYYY');
-        for(let j=0; j<dataDays.length; j++) {
+        for(let j=0; j<dataDays.length; j++) { //Loop through data, if the date from data matches "today" var, push that day's info into result array
             if(data[j].date === today) {
                 result.push(data[j]);
             }
         }
     }
-
-    // for(let j=0; j<last7.length; j++) {
-    //     const day = data[j].date;
-    //     console.log(day);
-    //     if(last7[j].isSame(day)) {
-    //         
-    //     }
-    // }
 
     return result;
 }
