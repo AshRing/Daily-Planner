@@ -2,6 +2,10 @@
 
 Daily Planner app. Created to keep myself accountable and organized.
 
-## View preview at: https://ashring.github.io/Daily-Planner/
+## View demo at: https://youtu.be/nPEzoFYx5UE
 
-App uses json-server(https://github.com/typicode/json-server) as a local back-end REST API for Planner data. API is local-only and will not display on the above preview link.
+
+
+Planner App was created using pure modern Javascript with the help of Webpack and Node. Styling was done with Bootstrap.
+
+This app uses json-server(https://github.com/typicode/json-server) as a local back-end REST API for Planner data.
